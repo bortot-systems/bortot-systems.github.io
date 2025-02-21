@@ -178,16 +178,17 @@
         function openModal(event) {
             document.getElementById("modalTitle").textContent = event.eventName;
             document.getElementById("modalContent").innerHTML = `
-                    <p><strong>Unidade:</strong> ${event.eventUnit}</p>
-                    <p><strong>Telefone:</strong> ${event.phone}</p>
-                    <p><strong>Horário de Chegada:</strong> ${event.arrivalTime}</p>
-                    <p><strong>Check-in:</strong> ${event.checkIn}</p>
-                    <p><strong>Check-out:</strong> ${event.checkOut}</p>
-                    <p><strong>Informações do Veículo:</strong> ${event.carInfo}</p>
-                    <p><strong>Número de Pessoas:</strong> ${event.numberOfPeople}</p>
-                    <p><strong>Número de Crianças:</strong> ${event.numberOfChildren}</p>
-                    <p><strong>Descrição:</strong> ${event.description}</p>
-                `;
+                <p><strong>Unidade:</strong> ${event.eventUnit}</p>
+                <p><strong>Telefone:</strong> <a href="tel:${event.phone}">${event.phone}</a></p>
+                <p><strong>Horário de Chegada:</strong> ${event.arrivalTime}</p>
+                <p><strong>Check-in:</strong> ${event.checkIn}</p>
+                <p><strong>Check-out:</strong> ${event.checkOut}</p>
+                <p><strong>Informações do Veículo:</strong> ${event.carInfo}</p>
+                <p><strong>Número de Pessoas:</strong> ${event.numberOfPeople}</p>
+                <p><strong>Número de Crianças:</strong> ${event.numberOfChildren}</p>
+                <p><strong>Descrição:</strong> ${event.description}</p>
+            `;
+
             document.getElementById("eventModal").classList.add("show");
         }
 
