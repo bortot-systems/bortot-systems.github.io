@@ -34,6 +34,24 @@ const events = [
         "guest4": "Eleuda Câmara de Oliveira Ataliba da Silva - 02580546464",
         "guest5": "Maria Júlia de Oliveira Ataliba - 09373092499",
         "guest6": ""
+    }    ,
+    {
+        "eventName": "Antonio Izidro dos Santos Neto",
+        "eventUnit": "103",
+        "phone": "83 98745 3140",
+        "description": "",
+        "arrivalTime": "14:00",
+        "checkIn": "2025-02-24",
+        "checkOut": "2025-02-25",
+        "carInfo": "CRONOS de cor BRANCA, placas OFD3E62",
+        "numberOfPeople": 3,
+        "numberOfChildren": 0,
+        "guest1": "Antonio Izidro dos Santos Neto (RG 3842431/PB)",
+        "guest2": "Fernando Vieira de Oliveira Neto (RG 3003955/PB)",
+        "guest3": "Kezia Silmara Costa Farias (RG 2263633/PB)",
+        "guest4": "",
+        "guest5": "",
+        "guest6": ""
     }
 
 ];

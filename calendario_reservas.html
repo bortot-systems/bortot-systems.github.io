@@ -106,11 +106,16 @@
 
             for (let day = 1; day <= daysInMonth; day++) {
                 let dateStr = `${currentYear}-${String(currentMonth).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+
+                // Get the weekday name in Portuguese
+                let weekdayName = new Date(currentYear, currentMonth - 1, day)
+                    .toLocaleString('pt-BR', { weekday: 'long' });
+
                 let dayDiv = document.createElement("div");
                 dayDiv.className = "day";
-                dayDiv.innerHTML = `<strong>${day}</strong>`;
+                dayDiv.innerHTML = `<strong>${day} (${weekdayName})</strong>`;
 
-                events.filter(event => new Date(event.checkIn).toISOString().split('T')[0] === dateStr).forEach(event => {
+                events.filter(event => event.checkIn === dateStr).forEach(event => {
                     let eventDiv = document.createElement("div");
                     eventDiv.className = "event";
                     eventDiv.innerHTML = `<strong>${event.eventUnit} - ${event.eventName}</strong>`;
@@ -125,22 +130,22 @@
         function openModal(event) {
             document.getElementById("modalTitle").textContent = event.eventName;
             document.getElementById("modalContent").innerHTML = `
-                        <p><strong>Unidade:</strong> ${event.eventUnit}</p>
-                        <p><strong>Telefone:</strong> ${event.phone}</p>
-                        <p><strong>Horário de Chegada:</strong> ${event.arrivalTime}</p>
-                        <p><strong>Check-in:</strong> ${new Date(event.checkIn).toLocaleDateString('pt-BR')}</p>
-                        <p><strong>Check-out:</strong> ${new Date(event.checkOut).toLocaleDateString('pt-BR')}</p>
-                        <p><strong>Informações do Veículo:</strong> ${event.carInfo}</p>
-                        <p><strong>Número de Pessoas:</strong> ${event.numberOfPeople}</p>
-                        <p><strong>Número de Crianças:</strong> ${event.numberOfChildren}</p>
-                        <p><strong>Hóspede 1:</strong> ${event.guest1}</p>
-                        <p><strong>Hóspede 2:</strong> ${event.guest2}</p>
-                        <p><strong>Hóspede 3:</strong> ${event.guest3}</p>
-                        <p><strong>Hóspede 4:</strong> ${event.guest4}</p>
-                        <p><strong>Hóspede 5:</strong> ${event.guest5}</p>
-                        <p><strong>Hóspede 6:</strong> ${event.guest6}</p>
-                        <p><strong>Descrição:</strong> ${event.description}</p>
-                    `;
+                    <p><strong>Unidade:</strong> ${event.eventUnit}</p>
+                    <p><strong>Telefone:</strong> ${event.phone}</p>
+                    <p><strong>Horário de Chegada:</strong> ${event.arrivalTime}</p>
+                    <p><strong>Check-in:</strong> ${event.checkIn}</p>
+                    <p><strong>Check-out:</strong> ${event.checkOut}</p>
+                    <p><strong>Informações do Veículo:</strong> ${event.carInfo}</p>
+                    <p><strong>Número de Pessoas:</strong> ${event.numberOfPeople}</p>
+                    <p><strong>Número de Crianças:</strong> ${event.numberOfChildren}</p>
+                    <p><strong>Hóspede 1:</strong> ${event.guest1}</p>
+                    <p><strong>Hóspede 2:</strong> ${event.guest2}</p>
+                    <p><strong>Hóspede 3:</strong> ${event.guest3}</p>
+                    <p><strong>Hóspede 4:</strong> ${event.guest4}</p>
+                    <p><strong>Hóspede 5:</strong> ${event.guest5}</p>
+                    <p><strong>Hóspede 6:</strong> ${event.guest6}</p>
+                    <p><strong>Descrição:</strong> ${event.description}</p>
+                `;
             document.getElementById("eventModal").classList.add("show");
         }
 
