@@ -179,7 +179,12 @@
             document.getElementById("modalTitle").textContent = event.eventName;
             document.getElementById("modalContent").innerHTML = `
                 <p><strong>Unidade:</strong> ${event.eventUnit}</p>
-                <p><strong>Telefone:</strong> <a href="tel:${event.phone}">${event.phone}</a></p>
+                <p><strong>Telefone:</strong>
+                    <a href="tel:+55${event.phone}">${event.phone}</a>
+                    <a href="https://wa.me/+55${event.phone.replace(/\s+/g, '')}" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; vertical-align: middle; margin-left: 10px;">
+                    </a>
+                </p>
                 <p><strong>Horário de Chegada:</strong> ${event.arrivalTime}</p>
                 <p><strong>Check-in:</strong> ${event.checkIn}</p>
                 <p><strong>Check-out:</strong> ${event.checkOut}</p>

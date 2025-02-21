@@ -52,6 +52,24 @@ const events = [
         "guest4": "",
         "guest5": "",
         "guest6": ""
+    },
+    {
+        "eventName": "Steven Silva",
+        "eventUnit": "229",
+        "phone": "61 98145 7017 ",
+        "description": "4 adultos e 1 criança",
+        "arrivalTime": "14:00",
+        "checkIn": "2025-03-03",
+        "checkOut": "2025-03-05",
+        "carInfo": "",
+        "numberOfPeople": 5,
+        "numberOfChildren": 1,
+        "guest1": "Antonio Izidro dos Santos Neto (RG 3842431/PB)",
+        "guest2": "Fernando Vieira de Oliveira Neto (RG 3003955/PB)",
+        "guest3": "Kezia Silmara Costa Farias (RG 2263633/PB)",
+        "guest4": "",
+        "guest5": "",
+        "guest6": ""
     }
 
 ];
