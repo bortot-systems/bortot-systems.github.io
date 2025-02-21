@@ -3,18 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendário de Reservas</title>
+    <title>Calendário de Atividades</title>
     <style>
-        body { font-family: Arial, sans-serif; background: black; color: white; }
-        .calendar { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; }
-        .day { border: 1px solid #ccc; padding: 10px; min-height: 80px; position: relative; cursor: pointer; }
-        .event { background: #f4f4f4; color: black; padding: 5px; margin-top: 5px; border-radius: 5px; cursor: pointer; }
-        .modal { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; color: black; padding: 20px; border: 1px solid #ccc; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); }
-        .modal.show { display: block; }
-        .modal-header { font-weight: bold; }
-        .modal-close { cursor: pointer; float: right; }
-        .navigation { display: flex; justify-content: space-between; margin-bottom: 10px; }
-        .nav-button { cursor: pointer; padding: 5px 10px; background: white; color: black; border: none; }
+        body {
+            font-family: Arial, sans-serif;
+            background: black;
+            color: white;
+        }
+
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+        }
+
+        .day {
+            border: 1px solid #ccc;
+            padding: 10px;
+            min-height: 80px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .event {
+            background: #f4f4f4;
+            color: black;
+            padding: 5px;
+            margin-top: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            color: black;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+
+            .modal.show {
+                display: block;
+            }
+
+        .modal-header {
+            font-weight: bold;
+        }
+
+        .modal-close {
+            cursor: pointer;
+            float: right;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .nav-button {
+            cursor: pointer;
+            padding: 5px 10px;
+            background: white;
+            color: black;
+            border: none;
+        }
     </style>
     <script src="events.js"></script>
 </head>
@@ -43,21 +103,21 @@
             const calendar = document.getElementById("calendar");
             calendar.innerHTML = "";
             const daysInMonth = new Date(currentYear, currentMonth, 0).getDate();
-            
+
             for (let day = 1; day <= daysInMonth; day++) {
                 let dateStr = `${currentYear}-${String(currentMonth).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
                 let dayDiv = document.createElement("div");
                 dayDiv.className = "day";
                 dayDiv.innerHTML = `<strong>${day}</strong>`;
-                
-                events.filter(event => event.date === dateStr).forEach(event => {
+
+                events.filter(event => new Date(event.checkIn).toISOString().split('T')[0] === dateStr).forEach(event => {
                     let eventDiv = document.createElement("div");
                     eventDiv.className = "event";
-                    eventDiv.innerHTML = `<strong>${event.eventName}</strong>`;
+                    eventDiv.innerHTML = `<strong>${event.eventUnit} - ${event.eventName}</strong>`;
                     eventDiv.onclick = () => openModal(event);
                     dayDiv.appendChild(eventDiv);
                 });
-                
+
                 calendar.appendChild(dayDiv);
             }
         }
@@ -65,23 +125,29 @@
         function openModal(event) {
             document.getElementById("modalTitle").textContent = event.eventName;
             document.getElementById("modalContent").innerHTML = `
-                <p><strong>Unidade:</strong> ${event.eventUnit}</p>
-                <p><strong>Horário de Chegada:</strong> ${event.arrivalTime}</p>
-                <p><strong>Check-in:</strong> ${event.checkIn}</p>
-                <p><strong>Check-out:</strong> ${event.checkOut}</p>
-                <p><strong>Informações do Veículo:</strong> ${event.carInfo}</p>
-                <p><strong>Número de Pessoas:</strong> ${event.numberOfPeople}</p>
-                <p><strong>Número de Crianças:</strong> ${event.numberOfChildren}</p>
-                <p><strong>Descrição:</strong> ${event.description}</p>
-                <p><strong>Data:</strong> ${event.date}</p>
-            `;
+                        <p><strong>Unidade:</strong> ${event.eventUnit}</p>
+                        <p><strong>Telefone:</strong> ${event.phone}</p>
+                        <p><strong>Horário de Chegada:</strong> ${event.arrivalTime}</p>
+                        <p><strong>Check-in:</strong> ${new Date(event.checkIn).toLocaleDateString('pt-BR')}</p>
+                        <p><strong>Check-out:</strong> ${new Date(event.checkOut).toLocaleDateString('pt-BR')}</p>
+                        <p><strong>Informações do Veículo:</strong> ${event.carInfo}</p>
+                        <p><strong>Número de Pessoas:</strong> ${event.numberOfPeople}</p>
+                        <p><strong>Número de Crianças:</strong> ${event.numberOfChildren}</p>
+                        <p><strong>Hóspede 1:</strong> ${event.guest1}</p>
+                        <p><strong>Hóspede 2:</strong> ${event.guest2}</p>
+                        <p><strong>Hóspede 3:</strong> ${event.guest3}</p>
+                        <p><strong>Hóspede 4:</strong> ${event.guest4}</p>
+                        <p><strong>Hóspede 5:</strong> ${event.guest5}</p>
+                        <p><strong>Hóspede 6:</strong> ${event.guest6}</p>
+                        <p><strong>Descrição:</strong> ${event.description}</p>
+                    `;
             document.getElementById("eventModal").classList.add("show");
         }
 
         function closeModal() {
             document.getElementById("eventModal").classList.remove("show");
         }
-        
+
         function changeMonth(step) {
             currentMonth += step;
             if (currentMonth < 1) {
@@ -93,7 +159,7 @@
             }
             renderCalendar();
         }
-        
+
         document.addEventListener("DOMContentLoaded", renderCalendar);
     </script>
 </body>
