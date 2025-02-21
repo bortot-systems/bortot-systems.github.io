@@ -1,6 +1,6 @@
 const events = [
     {
-        "eventName": "Ass",
+        "eventName": "Ass2",
         "eventUnit": "Escritório Central",
         "description": "Discussão sobre metas do mês e novas estratégias.",
         "date": "2025-02-25",
@@ -12,7 +12,7 @@ const events = [
         "numberOfChildren": 0
     },
     {
-        "eventName": "Ass",
+        "eventName": "Ass2",
         "eventUnit": "Escritório Central",
         "description": "Discussão sobre metas do mês e novas estratégias.",
         "date": "2025-02-25",
