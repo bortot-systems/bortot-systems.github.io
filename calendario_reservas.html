@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendário de Atividades</title>
+    <title>Calendário - Reservas Pacific Flat</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -126,7 +126,7 @@
     <script src="events.js"></script>
 </head>
 <body>
-    <h2>Calendário de Atividades</h2>
+    <h2>Calendário - Reservas Pacific Flat</h2>
     <div class="navigation">
         <button class="nav-button" onclick="changeMonth(-1)">⬅ Mês Anterior</button>
         <span id="monthYear"></span>
@@ -185,13 +185,14 @@
                         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; vertical-align: middle; margin-left: 10px;">
                     </a>
                 </p>
+                <p><strong>Valor pago: R$ </strong> ${event.price}</p>
                 <p><strong>Horário de Chegada:</strong> ${event.arrivalTime}</p>
                 <p><strong>Check-in:</strong> ${event.checkIn}</p>
                 <p><strong>Check-out:</strong> ${event.checkOut}</p>
                 <p><strong>Informações do Veículo:</strong> ${event.carInfo}</p>
                 <p><strong>Número de Pessoas:</strong> ${event.numberOfPeople}</p>
                 <p><strong>Número de Crianças:</strong> ${event.numberOfChildren}</p>
-                <p><strong>Descrição:</strong> ${event.description}</p>
+                <p><strong>Notas:</strong> ${event.notes}</p>
             `;
 
             document.getElementById("eventModal").classList.add("show");
