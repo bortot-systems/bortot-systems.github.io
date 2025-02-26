@@ -71,7 +71,7 @@ const events = [
         "guest1": "Waldiana Aires",
         "guest2": "Heitor Aires ( 3 anos )",
         "guest3": "Baba do filho: Janaína Araujo",
-        "guest4": "",
+        "guest4": "GABRIEL AIRES",
         "guest5": "",
         "guest6": ""
     },
