@@ -51,6 +51,10 @@
             border-radius: 5px;
         }
 
+        .day.current {
+            background: #615c5b;
+        }
+
         .event.checkin {
             background: lightgreen;
             color: black;
@@ -177,6 +181,9 @@
 
                 let dayDiv = document.createElement("div");
                 dayDiv.className = "day";
+                if (dateStr === currentDate.toISOString().split('T')[0]) {
+                    dayDiv.classList.add("current");
+                }
                 dayDiv.innerHTML = `<strong>${day} (${weekdayName})</strong>`;
 
                 events.forEach(event => {
