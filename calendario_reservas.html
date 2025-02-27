@@ -30,7 +30,7 @@
             background: white;
             color: black;
             border: none;
-            border-radius: 10px; /* Added for rounded corners */
+            border-radius: 10px;
         }
 
         .calendar {
@@ -51,15 +51,22 @@
             border-radius: 5px;
         }
 
-        .event {
-            background: #f4f4f4;
+        .event.checkin {
+            background: lightgreen;
             color: black;
             padding: 3px;
             margin-top: 3px;
             border-radius: 3px;
             font-size: 0.7rem;
-            cursor: pointer;
-            word-wrap: break-word;
+        }
+
+        .event.checkout {
+            background-color: #ad2a2a;
+            color: white;
+            padding: 3px;
+            margin-top: 3px;
+            border-radius: 3px;
+            font-size: 0.7rem;
         }
 
         .modal {
@@ -77,9 +84,9 @@
             text-align: left;
         }
 
-            .modal.show {
-                display: block;
-            }
+        .modal.show {
+            display: block;
+        }
 
         .modal-header {
             font-weight: bold;
@@ -105,7 +112,12 @@
                 font-size: 0.7rem;
             }
 
-            .event {
+            .event.checkin {
+                font-size: 0.6rem;
+                padding: 2px;
+            }
+
+            .event.checkout {
                 font-size: 0.6rem;
                 padding: 2px;
             }
@@ -120,6 +132,7 @@
                 margin-bottom: 5px;
             }
         }
+
     </style>
     <script src="events.js"></script>
 </head>
@@ -138,6 +151,12 @@
         <div id="modalContent"></div>
     </div>
 
+    <br />
+    
+   <div style="text-align: left">Legenda:</div>
+   <div class="event checkin" style="width:100px">Check-in</div>
+   <div class="event checkout" style="width:100px">Check-out</div>
+
     <script>
         let currentDate = new Date();
         let currentMonth = currentDate.getMonth() + 1;
@@ -153,7 +172,6 @@
 
             for (let day = 1; day <= daysInMonth; day++) {
                 let dateStr = `${currentYear}-${String(currentMonth).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-
                 let weekdayName = new Date(currentYear, currentMonth - 1, day)
                     .toLocaleString('pt-BR', { weekday: 'short' });
 
@@ -161,12 +179,21 @@
                 dayDiv.className = "day";
                 dayDiv.innerHTML = `<strong>${day} (${weekdayName})</strong>`;
 
-                events.filter(event => event.checkIn === dateStr).forEach(event => {
-                    let eventDiv = document.createElement("div");
-                    eventDiv.className = "event";
-                    eventDiv.innerHTML = `<strong>${event.eventUnit} - ${event.eventName}</strong>`;
-                    eventDiv.onclick = () => openModal(event);
-                    dayDiv.appendChild(eventDiv);
+                events.forEach(event => {
+                    if (event.checkIn === dateStr) {
+                        let eventDiv = document.createElement("div");
+                        eventDiv.className = "event checkin";
+                        eventDiv.innerHTML = `<strong>${event.eventUnit} - ${event.eventName}</strong>`;
+                        eventDiv.onclick = () => openModal(event);
+                        dayDiv.appendChild(eventDiv);
+                    }
+                    if (event.checkOut === dateStr) {
+                        let eventDiv = document.createElement("div");
+                        eventDiv.className = "event checkout";
+                        eventDiv.innerHTML = `<strong>${event.eventUnit} - ${event.eventName}</strong>`;
+                        eventDiv.onclick = () => openModal(event);
+                        dayDiv.appendChild(eventDiv);
+                    }
                 });
 
                 calendar.appendChild(dayDiv);
@@ -176,29 +203,29 @@
         function openModal(event) {
             document.getElementById("modalTitle").textContent = event.eventName;
             document.getElementById("modalContent").innerHTML = `
-                <p><strong>Unidade:</strong> ${event.eventUnit}</p>
-                <p><strong>Telefone:</strong>
-                    <a href="tel:+55${event.phone}">${event.phone}</a>
-                    <a href="https://wa.me/+55${event.phone.replace(/\s+/g, '')}" target="_blank">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; vertical-align: middle; margin-left: 10px;">
-                    </a>
-                </p>
-                <p><strong>Valor pago: R$ </strong> ${event.price}</p>
-                <p><strong>Horário de Chegada:</strong> ${event.arrivalTime}</p>
-                <p><strong>Check-in:</strong> ${event.checkIn}</p>
-                <p><strong>Check-out:</strong> ${event.checkOut}</p>
-                <p><strong>Informações do Veículo:</strong> ${event.carInfo}</p>
-                <p><strong>Número de Pessoas:</strong> ${event.numberOfPeople}</p>
-                <p><strong>Número de Crianças:</strong> ${event.numberOfChildren}</p>
-                <p><strong>Notas:</strong> ${event.notes}</p>
-                <p><strong>Hospedes:</strong></p>
-                <p style="font-size: 13px;">${event.guest1}</p>
-                <p style="font-size: 13px;">${event.guest2}</p>
-                <p style="font-size: 13px;">${event.guest3}</p>
-                <p style="font-size: 13px;">${event.guest4}</p>
-                <p style="font-size: 13px;">${event.guest5}</p>
-                <p style="font-size: 13px;">${event.guest6}</p>
-            `;
+                    <p><strong>Unidade:</strong> ${event.eventUnit}</p>
+                    <p><strong>Telefone:</strong>
+                        <a href="tel:+55${event.phone}">${event.phone}</a>
+                        <a href="https://wa.me/+55${event.phone.replace(/\s+/g, '')}" target="_blank">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; vertical-align: middle; margin-left: 10px;">
+                        </a>
+                    </p>
+                    <p><strong>Valor pago: R$ </strong> ${event.price}</p>
+                    <p><strong>Horário de Chegada:</strong> ${event.arrivalTime}</p>
+                    <p><strong>Check-in:</strong> ${event.checkIn}</p>
+                    <p><strong>Check-out:</strong> ${event.checkOut}</p>
+                    <p><strong>Informações do Veículo:</strong> ${event.carInfo}</p>
+                    <p><strong>Número de Pessoas:</strong> ${event.numberOfPeople}</p>
+                    <p><strong>Número de Crianças:</strong> ${event.numberOfChildren}</p>
+                    <p><strong>Notas:</strong> ${event.notes}</p>
+                    <p><strong>Hospedes:</strong></p>
+                    <p style="font-size: 13px;">${event.guest1}</p>
+                    <p style="font-size: 13px;">${event.guest2}</p>
+                    <p style="font-size: 13px;">${event.guest3}</p>
+                    <p style="font-size: 13px;">${event.guest4}</p>
+                    <p style="font-size: 13px;">${event.guest5}</p>
+                    <p style="font-size: 13px;">${event.guest6}</p>
+                `;
 
             document.getElementById("eventModal").classList.add("show");
         }
