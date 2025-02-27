@@ -132,5 +132,24 @@ const events = [
         "guest5": "",
         "guest6": ""
     },
+    {
+        "eventName": "Angela Karoline",
+        "eventUnit": "103",
+        "phone": "81 98245 2220 ",
+        "price": "1404",
+        "notes": "4 adultos e 1 criança",
+        "arrivalTime": "12:30",
+        "checkIn": "2025-03-02",
+        "checkOut": "2025-03-04",
+        "carInfo": "",
+        "numberOfPeople": 5,
+        "numberOfChildren": 1,
+        "guest1": "Angela Karoline",
+        "guest2": "",
+        "guest3": "",
+        "guest4": "",
+        "guest5": "",
+        "guest6": ""
+    },
 
 ];
