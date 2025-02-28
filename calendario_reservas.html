@@ -73,6 +73,11 @@
             font-size: 0.7rem;
         }
 
+        .event.in-range {
+            color: lightgrey;
+            font-style: italic;
+        }
+
         .modal {
             display: none;
             position: fixed;
@@ -126,6 +131,11 @@
                 padding: 2px;
             }
 
+            .event.in-range {
+                font-size: 0.6rem;
+                padding: 2px;
+            }
+
             .navigation {
                 flex-direction: column;
             }
@@ -160,6 +170,7 @@
    <div style="text-align: left">Legenda:</div>
    <div class="event checkin" style="width:100px">Check-in</div>
    <div class="event checkout" style="width:100px">Check-out</div>
+   <div class="event in-range" style="width:100px">Ocupado</div>
 
     <script>
         let currentDate = new Date();
@@ -192,6 +203,15 @@
                 dayDiv.innerHTML = `<strong>${day} (${weekdayName})</strong>`;
 
                 events.forEach(event => {
+                    let checkInDate = new Date(event.checkIn);
+                    let checkOutDate = new Date(event.checkOut);
+                    let currentDay = new Date(currentYear, currentMonth - 1, day - 1);
+
+                    // Format dates to ignore time components for proper comparison
+                    checkInDate.setHours(0, 0, 0, 0);
+                    checkOutDate.setHours(0, 0, 0, 0);
+                    currentDay.setHours(0, 0, 0, 0);
+
                     if (event.checkIn === dateStr) {
                         let eventDiv = document.createElement("div");
                         eventDiv.className = "event checkin";
@@ -206,6 +226,15 @@
                         eventDiv.onclick = () => openModal(event);
                         dayDiv.appendChild(eventDiv);
                     }
+
+                    // Append events on all days between check-in and check-out, excluding check-in and check-out days
+                    if (currentDay > checkInDate && currentDay < checkOutDate) {  // Ensure it's strictly between check-in and check-out
+                        let eventDiv = document.createElement("div");
+                        eventDiv.className = "event in-range"; 
+                        eventDiv.innerHTML = `<strong>${event.eventUnit} - ${event.eventName}</strong>`;
+                        dayDiv.appendChild(eventDiv)
+                    }
+
                 });
 
                 calendar.appendChild(dayDiv);
