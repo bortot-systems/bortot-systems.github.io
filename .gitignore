@@ -365,3 +365,7 @@ FodyWeavers.xsd
 CopilotIndices/
 
 v17/
+
+CodeChunks.db-wal
+CodeChunks.db-shm
+SemanticSymbols.db-wal

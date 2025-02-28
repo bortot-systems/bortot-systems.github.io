@@ -170,5 +170,31 @@ const events = [
         "guest5": "Samara Thaila Dantas Diniz (CPF 153272234-69)",
         "guest6": ""
     },
+    {
+        "eventName": "CELSO PEDROSA FILHO",
+        "eventUnit": "229",
+        "phone": "",
+        "price": "0",
+        "notes": "Amigo do meu pai - QUANTO VAI PAGAR?",
+        "arrivalTime": "12:00",
+        "checkIn": "2025-04-13",
+        "checkOut": "2025-04-18",
+        "carInfo": "",
+        "numberOfPeople": 0,
+        "numberOfChildren": 0        
+    },
+    {
+        "eventName": "CELSO PEDROSA FILHO",
+        "eventUnit": "103",
+        "phone": "",
+        "price": "0",
+        "notes": "Amigo do meu pai - QUANTO VAI PAGAR?",
+        "arrivalTime": "12:00",
+        "checkIn": "2025-04-18",
+        "checkOut": "2025-04-20",
+        "carInfo": "",
+        "numberOfPeople": 0,
+        "numberOfChildren": 0
+    },
 
 ];
