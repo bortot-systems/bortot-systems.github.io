@@ -181,7 +181,12 @@
 
                 let dayDiv = document.createElement("div");
                 dayDiv.className = "day";
-                if (dateStr === currentDate.toISOString().split('T')[0]) {
+
+                //Current day highlight
+                const localDate = new Date();
+                const localDateStr = new Intl.DateTimeFormat('fr-CA').format(localDate).replace(/\//g, '-'); 
+                if (dateStr === localDateStr) {
+
                     dayDiv.classList.add("current");
                 }
                 dayDiv.innerHTML = `<strong>${day} (${weekdayName})</strong>`;
