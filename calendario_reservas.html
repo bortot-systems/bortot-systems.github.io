@@ -185,7 +185,19 @@
 
             const calendar = document.getElementById("calendar");
             calendar.innerHTML = "";
+
+            const firstDayOfMonth = new Date(currentYear, currentMonth - 1, 1).getDay(); // 0 = Sunday, 1 = Monday...
             const daysInMonth = new Date(currentYear, currentMonth, 0).getDate();
+
+            // Adjust the starting position to make Monday the first day of the week
+            let startOffset = (firstDayOfMonth === 0) ? 6 : firstDayOfMonth - 1; // Shift Sunday to the end
+
+            // Fill the blank days before the first day of the month
+            for (let i = 0; i < startOffset; i++) {
+                let emptyDiv = document.createElement("div");
+                emptyDiv.className = "day empty"; // Add styling if needed
+                calendar.appendChild(emptyDiv);
+            }
 
             for (let day = 1; day <= daysInMonth; day++) {
                 let dateStr = `${currentYear}-${String(currentMonth).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
@@ -195,20 +207,20 @@
                 let dayDiv = document.createElement("div");
                 dayDiv.className = "day";
 
-                //Current day highlight
+                // Highlight current day
                 const localDate = new Date();
-                const localDateStr = new Intl.DateTimeFormat('fr-CA').format(localDate).replace(/\//g, '-'); 
+                const localDateStr = new Intl.DateTimeFormat('fr-CA').format(localDate).replace(/\//g, '-');
                 if (dateStr === localDateStr) {
-
                     dayDiv.classList.add("current");
                 }
+
                 dayDiv.innerHTML = `<strong>${day} (${weekdayName})</strong>`;
 
+                // Populate events
                 events.forEach(event => {
                     let checkInDate = new Date(event.checkIn);
                     let checkOutDate = new Date(event.checkOut);
                     let currentDay = new Date(currentYear, currentMonth - 1, day - 1);
-
                     // Format dates to ignore time components for proper comparison
                     checkInDate.setHours(0, 0, 0, 0);
                     checkOutDate.setHours(0, 0, 0, 0);
@@ -228,20 +240,20 @@
                         eventDiv.onclick = () => openModal(event);
                         dayDiv.appendChild(eventDiv);
                     }
-
                     // Append events on all days between check-in and check-out, excluding check-in and check-out days
+                    console.log(currentDay + event.eventName + checkInDate)
                     if (currentDay > checkInDate && currentDay < checkOutDate) {  // Ensure it's strictly between check-in and check-out
                         let eventDiv = document.createElement("div");
-                        eventDiv.className = "event in-range"; 
+                        eventDiv.className = "event in-range";
                         eventDiv.innerHTML = `<strong>${event.eventUnit} - ${event.eventName}</strong>`;
-                        dayDiv.appendChild(eventDiv)
+                        dayDiv.appendChild(eventDiv);
                     }
-
                 });
 
                 calendar.appendChild(dayDiv);
             }
         }
+
 
         function openModal(event) {
             document.getElementById("modalTitle").textContent = event.eventName;
