@@ -265,6 +265,14 @@
 
         function openModal(event) {
             document.getElementById("modalTitle").textContent = event.eventName;
+
+            let guests = "";
+            for (let i = 1; i <= 6; i++) {
+                if (event[`guest${i}`]) { // Only add guests that exist
+                    guests += `<p style="font-size: 13px;">${event[`guest${i}`]}</p>`;
+                }
+            }
+
             document.getElementById("modalContent").innerHTML = `
                                 <p><strong>Unidade:</strong> ${event.eventUnit}</p>
                                 <p><strong>Telefone:</strong>
@@ -281,13 +289,7 @@
                                 <p><strong>Número de Pessoas:</strong> ${event.numberOfPeople}</p>
                                 <p><strong>Número de Crianças:</strong> ${event.numberOfChildren}</p>
                                 <p><strong>Notas:</strong> ${event.notes}</p>
-                                <p><strong>Hospedes:</strong></p>
-                                <p style="font-size: 13px;">${event.guest1}</p>
-                                <p style="font-size: 13px;">${event.guest2}</p>
-                                <p style="font-size: 13px;">${event.guest3}</p>
-                                <p style="font-size: 13px;">${event.guest4}</p>
-                                <p style="font-size: 13px;">${event.guest5}</p>
-                                <p style="font-size: 13px;">${event.guest6}</p>
+                                ${guests ? `<p><strong>Hóspedes:</strong></p>${guests}` : ""}                               
                             `;
 
             document.getElementById("eventModal").classList.add("show");
