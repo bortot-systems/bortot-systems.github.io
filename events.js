@@ -215,7 +215,7 @@ const events = [
         "phone": "81 99571 2371",
         "price": "378",
         "notes": "",
-        "arrivalTime": "14:00",
+        "arrivalTime": "12:00",
         "checkIn": "2025-03-07",
         "checkOut": "2025-03-08",
         "carInfo": "",
