@@ -235,5 +235,18 @@ const events = [
         "numberOfPeople": 3,
         "numberOfChildren": 0
     },
+    {
+        "eventName": "Roniery Santos",
+        "eventUnit": "229",
+        "phone": "83 99803 0893",
+        "price": "648",
+        "notes": "",
+        "arrivalTime": "18:00",
+        "checkIn": "2025-03-06",
+        "checkOut": "2025-03-08",
+        "carInfo": "",
+        "numberOfPeople": 4,
+        "numberOfChildren": 0
+    },
 
 ];
