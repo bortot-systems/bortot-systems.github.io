@@ -246,7 +246,9 @@ const events = [
         "checkOut": "2025-03-08",
         "carInfo": "",
         "numberOfPeople": 4,
-        "numberOfChildren": 0
+        "numberOfChildren": 0,
+        "guest1": "Roniery Guedes dos Santos  (CPF 09275918473)",
+        "guest2": "Therlyson Kleytheson Santos Marques  (CPF 70587560401)",
     },
 
 ];
