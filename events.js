@@ -196,5 +196,44 @@ const events = [
         "numberOfPeople": 0,
         "numberOfChildren": 0
     },
+    {
+        "eventName": "Daniela Silva",
+        "eventUnit": "103",
+        "phone": "81 99450 0203",
+        "price": "369",
+        "notes": "",
+        "arrivalTime": "14:00",
+        "checkIn": "2025-03-05",
+        "checkOut": "2025-03-06",
+        "carInfo": "",
+        "numberOfPeople": 5,
+        "numberOfChildren": 3      
+    },
+    {
+        "eventName": "Marcos Maia",
+        "eventUnit": "103",
+        "phone": "81 99571 2371",
+        "price": "378",
+        "notes": "",
+        "arrivalTime": "14:00",
+        "checkIn": "2025-03-07",
+        "checkOut": "2025-03-08",
+        "carInfo": "",
+        "numberOfPeople": 5,
+        "numberOfChildren": 1
+    },
+    {
+        "eventName": "Carole MONIER",
+        "eventUnit": "103",
+        "phone": "FR",
+        "price": "567",
+        "notes": "",
+        "arrivalTime": "14:00",
+        "checkIn": "2025-03-13",
+        "checkOut": "2025-03-15",
+        "carInfo": "",
+        "numberOfPeople": 3,
+        "numberOfChildren": 0
+    },
 
 ];
