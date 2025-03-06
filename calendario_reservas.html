@@ -159,6 +159,8 @@
         <span id="monthYear"></span>
         <button class="nav-button" onclick="changeMonth(1)">Próximo Mês ➡</button>
     </div>
+    <div style="text-align: center"><select id="monthDropdown" onchange="changeMonthDropdown()"></select></div>
+    <br />
     <div class="calendar" id="calendar"></div>
 
     <div class="modal" id="eventModal">
@@ -168,11 +170,11 @@
     </div>
 
     <br />
-    
-   <div style="text-align: left">Legenda:</div>
-   <div class="event checkin" style="width:100px">Check-in</div>
-   <div class="event checkout" style="width:100px">Check-out</div>
-   <div class="event in-range" style="width:100px">Ocupado</div>
+
+    <div style="text-align: left">Legenda:</div>
+    <div class="event checkin" style="width:100px">Check-in</div>
+    <div class="event checkout" style="width:100px">Check-out</div>
+    <div class="event in-range" style="width:100px">Ocupado</div>
 
     <script>
         let currentDate = new Date();
@@ -258,29 +260,29 @@
         function openModal(event) {
             document.getElementById("modalTitle").textContent = event.eventName;
             document.getElementById("modalContent").innerHTML = `
-                    <p><strong>Unidade:</strong> ${event.eventUnit}</p>
-                    <p><strong>Telefone:</strong>
-                        <a href="tel:+55${event.phone}">${event.phone}</a>
-                        <a href="https://wa.me/+55${event.phone.replace(/\s+/g, '')}" target="_blank">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; vertical-align: middle; margin-left: 10px;">
-                        </a>
-                    </p>
-                    <p><strong>Valor pago: R$ </strong> ${event.price}</p>
-                    <p><strong>Horário de Chegada:</strong> ${event.arrivalTime}</p>
-                    <p><strong>Check-in:</strong> ${event.checkIn}</p>
-                    <p><strong>Check-out:</strong> ${event.checkOut}</p>
-                    <p><strong>Informações do Veículo:</strong> ${event.carInfo}</p>
-                    <p><strong>Número de Pessoas:</strong> ${event.numberOfPeople}</p>
-                    <p><strong>Número de Crianças:</strong> ${event.numberOfChildren}</p>
-                    <p><strong>Notas:</strong> ${event.notes}</p>
-                    <p><strong>Hospedes:</strong></p>
-                    <p style="font-size: 13px;">${event.guest1}</p>
-                    <p style="font-size: 13px;">${event.guest2}</p>
-                    <p style="font-size: 13px;">${event.guest3}</p>
-                    <p style="font-size: 13px;">${event.guest4}</p>
-                    <p style="font-size: 13px;">${event.guest5}</p>
-                    <p style="font-size: 13px;">${event.guest6}</p>
-                `;
+                                <p><strong>Unidade:</strong> ${event.eventUnit}</p>
+                                <p><strong>Telefone:</strong>
+                                    <a href="tel:+55${event.phone}">${event.phone}</a>
+                                    <a href="https://wa.me/+55${event.phone.replace(/\s+/g, '')}" target="_blank">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; vertical-align: middle; margin-left: 10px;">
+                                    </a>
+                                </p>
+                                <p><strong>Valor pago: R$ </strong> ${event.price}</p>
+                                <p><strong>Horário de Chegada:</strong> ${event.arrivalTime}</p>
+                                <p><strong>Check-in:</strong> ${event.checkIn}</p>
+                                <p><strong>Check-out:</strong> ${event.checkOut}</p>
+                                <p><strong>Informações do Veículo:</strong> ${event.carInfo}</p>
+                                <p><strong>Número de Pessoas:</strong> ${event.numberOfPeople}</p>
+                                <p><strong>Número de Crianças:</strong> ${event.numberOfChildren}</p>
+                                <p><strong>Notas:</strong> ${event.notes}</p>
+                                <p><strong>Hospedes:</strong></p>
+                                <p style="font-size: 13px;">${event.guest1}</p>
+                                <p style="font-size: 13px;">${event.guest2}</p>
+                                <p style="font-size: 13px;">${event.guest3}</p>
+                                <p style="font-size: 13px;">${event.guest4}</p>
+                                <p style="font-size: 13px;">${event.guest5}</p>
+                                <p style="font-size: 13px;">${event.guest6}</p>
+                            `;
 
             document.getElementById("eventModal").classList.add("show");
         }
@@ -301,7 +303,36 @@
             renderCalendar();
         }
 
-        document.addEventListener("DOMContentLoaded", renderCalendar);
+        function populateMonthDropdown() {
+            const monthDropdown = document.getElementById("monthDropdown");
+            const monthNames = [
+                "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+                "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+            ];
+
+            monthDropdown.innerHTML = ""; // Clear existing options
+
+            monthNames.forEach((month, index) => {
+                let option = document.createElement("option");
+                option.value = index + 1;
+                option.textContent = `${month} ${currentYear}`;
+                if (index + 1 === currentMonth) {
+                    option.selected = true;
+                }
+                monthDropdown.appendChild(option);
+            });
+        }
+
+        function changeMonthDropdown() {
+            const selectedMonth = parseInt(document.getElementById("monthDropdown").value);
+            currentMonth = selectedMonth;
+            renderCalendar();
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            populateMonthDropdown();
+            renderCalendar();
+        });
     </script>
 </body>
 </html>
