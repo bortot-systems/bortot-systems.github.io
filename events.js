@@ -182,20 +182,7 @@ const events = [
         "carInfo": "",
         "numberOfPeople": 0,
         "numberOfChildren": 0        
-    },
-    {
-        "eventName": "CELSO PEDROSA FILHO",
-        "eventUnit": "103",
-        "phone": "",
-        "price": "0",
-        "notes": "Amigo do meu pai - QUANTO VAI PAGAR?",
-        "arrivalTime": "12:00",
-        "checkIn": "2025-04-18",
-        "checkOut": "2025-04-20",
-        "carInfo": "",
-        "numberOfPeople": 0,
-        "numberOfChildren": 0
-    },
+    },    
     {
         "eventName": "Daniela Silva",
         "eventUnit": "103",
@@ -251,6 +238,19 @@ const events = [
         "guest2": "Therlyson Kleytheson Santos Marques  (CPF 70587560401)",
         "guest3": "Suellen Fernanda Oliveira Correia  (CPF 07494463585)",
         "guest4": "Jéssica Mariano de Sousa  (CPF 711.475.554-60)",
+    },
+    {
+        "eventName": "Brasilia",
+        "eventUnit": "229",
+        "phone": "",
+        "price": "0",
+        "notes": "2 meses",
+        "arrivalTime": "12:00",
+        "checkIn": "2025-03-23",
+        "checkOut": "2025-05-22",
+        "carInfo": "",
+        "numberOfPeople": 2,
+        "numberOfChildren": 0
     },
 
 ];
