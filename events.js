@@ -118,7 +118,7 @@ const events = [
         "eventUnit": "229",
         "phone": "84 99705 0020",
         "price": "1749",
-        "notes": "",
+        "notes": "Transferir casal para o 103",
         "arrivalTime": "14:00",
         "checkIn": "2025-04-18",
         "checkOut": "2025-04-21",
@@ -172,7 +172,7 @@ const events = [
     },
     {
         "eventName": "CELSO PEDROSA FILHO",
-        "eventUnit": "229",
+        "eventUnit": "103",
         "phone": "",
         "price": "0",
         "notes": "Amigo do meu pai - QUANTO VAI PAGAR?",
