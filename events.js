@@ -252,5 +252,17 @@ const events = [
         "numberOfPeople": 2,
         "numberOfChildren": 0
     },
-
+    {
+        "eventName": "Maria Gabriela do Nascimento",
+        "eventUnit": "103",
+        "phone": "81 99930 0406",
+        "price": "441,60",
+        "notes": "",
+        "arrivalTime": "13:00",
+        "checkIn": "2025-03-15",
+        "checkOut": "2025-03-16",
+        "carInfo": "",
+        "numberOfPeople": 5,
+        "numberOfChildren": 0,       
+    },
 ];

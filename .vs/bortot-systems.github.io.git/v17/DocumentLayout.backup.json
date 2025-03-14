@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Administrator\\Documents\\DEV2024\\ToolboxWeb\\bortot-systems.github.io.git\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Administrator\\Documents\\DEV2024\\ToolboxWeb\\bortot-systems.github.io.git\\calendario_reservas.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:calendario_reservas.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Administrator\\Documents\\DEV2024\\ToolboxWeb\\bortot-systems.github.io.git\\events.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:events.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Administrator\\Documents\\DEV2024\\ToolboxWeb\\bortot-systems.github.io.git\\calendario_reservas.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:calendario_reservas.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Administrator\\Documents\\DEV2024\\ToolboxWeb\\bortot-systems.github.io.git\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,20 +54,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "events.js",
               "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\DEV2024\\ToolboxWeb\\bortot-systems.github.io.git\\events.js",
               "RelativeDocumentMoniker": "events.js",
               "ToolTip": "C:\\Users\\Administrator\\Documents\\DEV2024\\ToolboxWeb\\bortot-systems.github.io.git\\events.js",
               "RelativeToolTip": "events.js",
-              "ViewState": "AgIAANsAAAAAAAAAAAAowPkAAABBAAAAAAAAAA==",
+              "ViewState": "AgIAANsAAAAAAAAAAAAowPYAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-02-21T16:13:55.563Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "calendario_reservas.html",
               "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\DEV2024\\ToolboxWeb\\bortot-systems.github.io.git\\calendario_reservas.html",
               "RelativeDocumentMoniker": "calendario_reservas.html",
