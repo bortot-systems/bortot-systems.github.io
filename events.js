@@ -115,9 +115,9 @@ const events = [
     },
     {
         "eventName": "Sebastião César Praxedes Bezerra",
-        "eventUnit": "229",
+        "eventUnit": "103",
         "phone": "84 99705 0020",
-        "price": "1749",
+        "price": "1500",
         "notes": "Transferir casal para o 103",
         "arrivalTime": "14:00",
         "checkIn": "2025-04-18",
