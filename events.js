@@ -303,4 +303,23 @@ const events = [
         "guest5": "Luanderson Ferreira do Nascimento (716.066.354-33)",
         "guest6": ""
     },
+    {
+        "eventName": "Jéssica Santos Ribeiro",
+        "eventUnit": "229",
+        "phone": "+55 55 98272 3686",
+        "price": "2850",
+        "notes": "comissao booking R$ 400",
+        "arrivalTime": "",
+        "checkIn": "2026-01-01",
+        "checkOut": "2026-01-04",
+        "carInfo": "VW/GOL, vermelho, Placa: PGJ5449",
+        "numberOfPeople": 4,
+        "numberOfChildren": 0,
+        "guest1": "Jéssica Santos Ribeiro (CPF: 123.800.344-35, RG: 9.879.889)",
+        "guest2": "Nelson Inácio da Silva Júnior (CPF: 131.685.214-85, RG: 7.560.332)",
+        "guest3": "Luan Flavson da Silva (CPF: 121.950.324-05, RG: 9.759.435)",
+        "guest4": "Maria Alícia da Silva Pereira (CPF: 163.862.764-93, RG: 9.291.274)",
+        "guest5": "",
+        "guest6": ""
+    },
 ];
