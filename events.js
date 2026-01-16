@@ -417,4 +417,23 @@ const events = [
         "guest5": "",
         "guest6": ""
     },
+    {
+        "eventName": "Rafaela Suellen dias Diniz",
+        "eventUnit": "229",
+        "phone": "83 99365 5524",
+        "price": "",
+        "notes": "",
+        "arrivalTime": "",
+        "checkIn": "2026-01-17",
+        "checkOut": "2026-01-18",
+        "carInfo": "Placa do carro QSA3A00",
+        "numberOfAdults": 6,
+        "numberOfChildren": 0,
+        "guest1": "Clicio Barbosa da Silva 09632032403",
+        "guest2": "Rafaela Suellen D D Barbosa 07662241475",
+        "guest3": "Eulália Amarante costa 16736383412",
+        "guest4": "Ricardo Lima Nascimento 043.087.334-48",
+        "guest5": "Simone Morel Gomes Nascimento 06107952446",
+        "guest6": "Emerson Batista Silva 10544121465"
+    },
 ];
